@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-medecin-heading" data-cy="MedecinCreateUpdateHeading">Create or edit a Medecin</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nom')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_prenom">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="field_prenom" data-cy="prenom" formControlName="prenom" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_specialite">Specialite</label>
+          <select class="form-control" name="specialite" formControlName="specialite" id="field_specialite" data-cy="specialite">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let especialite of especialiteValues" [value]="especialite">especialite</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_autrespecialite">Autrespecialite</label>
+          <input
+            type="text"
+            class="form-control"
+            name="autrespecialite"
+            id="field_autrespecialite"
+            data-cy="autrespecialite"
+            formControlName="autrespecialite"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_structure">Structure</label>
+          <select
+            class="form-control"
+            id="field_structure"
+            data-cy="structure"
+            name="structure"
+            formControlName="structure"
+            [compareWith]="compareStructure"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="structureOption" *ngFor="let structureOption of structuresSharedCollection">{{ structureOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

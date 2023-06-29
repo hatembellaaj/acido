@@ -1,0 +1,23 @@
+{
+  "changelogDate": "20230629114035",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Servicestructure",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "structure",
+      "relationshipName": "structure",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

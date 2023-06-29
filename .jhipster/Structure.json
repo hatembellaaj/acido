@@ -1,0 +1,21 @@
+{
+  "changelogDate": "20230629113016",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "typestructure",
+      "fieldType": "estructure",
+      "fieldValues": "CABINET_MEDICAL,CLINIQUE_PRIVEE,STRUCTURE_DE_SANTE_PUBLIQUE"
+    }
+  ],
+  "name": "Structure",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

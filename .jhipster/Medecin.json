@@ -1,0 +1,36 @@
+{
+  "changelogDate": "20230629123812",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "specialite",
+      "fieldType": "especialite",
+      "fieldValues": "PEDIATRIE,NEANTOLOGIE,NEUROLOGIE,OPHTALMOLOGIE,MEDECINE_INTERNE,ORTHOPEDIE,CARDIOLOGIE,GENETIQUE,GYNECOLOGIE,AUTRE"
+    },
+    {
+      "fieldName": "autrespecialite",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Medecin",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "structure",
+      "relationshipName": "structure",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
