@@ -19,6 +19,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'Medecins' },
         loadChildren: () => import('./medecin/medecin.module').then(m => m.MedecinModule),
       },
+      {
+        path: 'acidoform',
+        data: { pageTitle: 'Acidoforms' },
+        loadChildren: () => import('./acidoform/acidoform.module').then(m => m.AcidoformModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

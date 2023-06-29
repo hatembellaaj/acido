@@ -1,0 +1,247 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-acidoform-heading" data-cy="AcidoformCreateUpdateHeading">Create or edit a Acidoform</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_homocystinurie">Homocystinurie</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="homocystinurie"
+            id="field_homocystinurie"
+            data-cy="homocystinurie"
+            formControlName="homocystinurie"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_leucinose">Leucinose</label>
+          <input type="checkbox" class="form-check" name="leucinose" id="field_leucinose" data-cy="leucinose" formControlName="leucinose" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_phenylcetonurie">Phenylcetonurie</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="phenylcetonurie"
+            id="field_phenylcetonurie"
+            data-cy="phenylcetonurie"
+            formControlName="phenylcetonurie"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tyrosinemie">Tyrosinemie</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="tyrosinemie"
+            id="field_tyrosinemie"
+            data-cy="tyrosinemie"
+            formControlName="tyrosinemie"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_updatedate">Updatedate</label>
+          <div class="input-group">
+            <input
+              id="field_updatedate"
+              data-cy="updatedate"
+              type="text"
+              class="form-control"
+              name="updatedate"
+              ngbDatepicker
+              #updatedateDp="ngbDatepicker"
+              formControlName="updatedate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="updatedateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_typeobservation">Typeobservation</label>
+          <select
+            class="form-control"
+            name="typeobservation"
+            formControlName="typeobservation"
+            id="field_typeobservation"
+            data-cy="typeobservation"
+          >
+            <option [ngValue]="null"></option>
+            <option *ngFor="let etypeobservation of etypeobservationValues" [value]="etypeobservation">etypeobservation</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_createddate">Createddate</label>
+          <div class="input-group">
+            <input
+              id="field_createddate"
+              data-cy="createddate"
+              type="text"
+              class="form-control"
+              name="createddate"
+              ngbDatepicker
+              #createddateDp="ngbDatepicker"
+              formControlName="createddate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="createddateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sexe">Sexe</label>
+          <select class="form-control" name="sexe" formControlName="sexe" id="field_sexe" data-cy="sexe">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let esexe of esexeValues" [value]="esexe">esexe</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_datenaissance">Datenaissance</label>
+          <div class="input-group">
+            <input
+              id="field_datenaissance"
+              data-cy="datenaissance"
+              type="text"
+              class="form-control"
+              name="datenaissance"
+              ngbDatepicker
+              #datenaissanceDp="ngbDatepicker"
+              formControlName="datenaissance"
+            />
+            <button type="button" class="btn btn-secondary" (click)="datenaissanceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_statut">Statut</label>
+          <select class="form-control" name="statut" formControlName="statut" id="field_statut" data-cy="statut">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let estatut of estatutValues" [value]="estatut">estatut</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_ageactuelans">Ageactuelans</label>
+          <input
+            type="number"
+            class="form-control"
+            name="ageactuelans"
+            id="field_ageactuelans"
+            data-cy="ageactuelans"
+            formControlName="ageactuelans"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_ageactuelmois">Ageactuelmois</label>
+          <input
+            type="number"
+            class="form-control"
+            name="ageactuelmois"
+            id="field_ageactuelmois"
+            data-cy="ageactuelmois"
+            formControlName="ageactuelmois"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_ageactueljours">Ageactueljours</label>
+          <input
+            type="number"
+            class="form-control"
+            name="ageactueljours"
+            id="field_ageactueljours"
+            data-cy="ageactueljours"
+            formControlName="ageactueljours"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_datedeces">Datedeces</label>
+          <div class="input-group">
+            <input
+              id="field_datedeces"
+              data-cy="datedeces"
+              type="text"
+              class="form-control"
+              name="datedeces"
+              ngbDatepicker
+              #datedecesDp="ngbDatepicker"
+              formControlName="datedeces"
+            />
+            <button type="button" class="btn btn-secondary" (click)="datedecesDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_agedecesan">Agedecesan</label>
+          <input
+            type="number"
+            class="form-control"
+            name="agedecesan"
+            id="field_agedecesan"
+            data-cy="agedecesan"
+            formControlName="agedecesan"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_agedecesmois">Agedecesmois</label>
+          <input
+            type="number"
+            class="form-control"
+            name="agedecesmois"
+            id="field_agedecesmois"
+            data-cy="agedecesmois"
+            formControlName="agedecesmois"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_agedecesjours">Agedecesjours</label>
+          <input
+            type="number"
+            class="form-control"
+            name="agedecesjours"
+            id="field_agedecesjours"
+            data-cy="agedecesjours"
+            formControlName="agedecesjours"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

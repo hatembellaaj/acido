@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="acidoform">
+      <h2 data-cy="acidoformDetailsHeading"><span>Acidoform</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ acidoform.id }}</span>
+        </dd>
+        <dt><span>Homocystinurie</span></dt>
+        <dd>
+          <span>{{ acidoform.homocystinurie }}</span>
+        </dd>
+        <dt><span>Leucinose</span></dt>
+        <dd>
+          <span>{{ acidoform.leucinose }}</span>
+        </dd>
+        <dt><span>Phenylcetonurie</span></dt>
+        <dd>
+          <span>{{ acidoform.phenylcetonurie }}</span>
+        </dd>
+        <dt><span>Tyrosinemie</span></dt>
+        <dd>
+          <span>{{ acidoform.tyrosinemie }}</span>
+        </dd>
+        <dt><span>Updatedate</span></dt>
+        <dd>
+          <span>{{ acidoform.updatedate | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Typeobservation</span></dt>
+        <dd>
+          <span>{{ acidoform.typeobservation }}</span>
+        </dd>
+        <dt><span>Createddate</span></dt>
+        <dd>
+          <span>{{ acidoform.createddate | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Sexe</span></dt>
+        <dd>
+          <span>{{ acidoform.sexe }}</span>
+        </dd>
+        <dt><span>Datenaissance</span></dt>
+        <dd>
+          <span>{{ acidoform.datenaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Statut</span></dt>
+        <dd>
+          <span>{{ acidoform.statut }}</span>
+        </dd>
+        <dt><span>Ageactuelans</span></dt>
+        <dd>
+          <span>{{ acidoform.ageactuelans }}</span>
+        </dd>
+        <dt><span>Ageactuelmois</span></dt>
+        <dd>
+          <span>{{ acidoform.ageactuelmois }}</span>
+        </dd>
+        <dt><span>Ageactueljours</span></dt>
+        <dd>
+          <span>{{ acidoform.ageactueljours }}</span>
+        </dd>
+        <dt><span>Datedeces</span></dt>
+        <dd>
+          <span>{{ acidoform.datedeces | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Agedecesan</span></dt>
+        <dd>
+          <span>{{ acidoform.agedecesan }}</span>
+        </dd>
+        <dt><span>Agedecesmois</span></dt>
+        <dd>
+          <span>{{ acidoform.agedecesmois }}</span>
+        </dd>
+        <dt><span>Agedecesjours</span></dt>
+        <dd>
+          <span>{{ acidoform.agedecesjours }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/acidoform', acidoform.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

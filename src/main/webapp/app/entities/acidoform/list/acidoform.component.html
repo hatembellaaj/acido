@@ -1,0 +1,218 @@
+<div>
+  <h2 id="page-heading" data-cy="AcidoformHeading">
+    <span>Acidoforms</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-acidoform"
+        [routerLink]="['/acidoform/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Acidoform </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="acidoforms?.length === 0">
+    <span>No Acidoforms found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="acidoforms && acidoforms.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span>ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="homocystinurie">
+            <div class="d-flex">
+              <span>Homocystinurie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="leucinose">
+            <div class="d-flex">
+              <span>Leucinose</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phenylcetonurie">
+            <div class="d-flex">
+              <span>Phenylcetonurie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tyrosinemie">
+            <div class="d-flex">
+              <span>Tyrosinemie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="updatedate">
+            <div class="d-flex">
+              <span>Updatedate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="typeobservation">
+            <div class="d-flex">
+              <span>Typeobservation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createddate">
+            <div class="d-flex">
+              <span>Createddate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sexe">
+            <div class="d-flex">
+              <span>Sexe</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="datenaissance">
+            <div class="d-flex">
+              <span>Datenaissance</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="statut">
+            <div class="d-flex">
+              <span>Statut</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ageactuelans">
+            <div class="d-flex">
+              <span>Ageactuelans</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ageactuelmois">
+            <div class="d-flex">
+              <span>Ageactuelmois</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ageactueljours">
+            <div class="d-flex">
+              <span>Ageactueljours</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="datedeces">
+            <div class="d-flex">
+              <span>Datedeces</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agedecesan">
+            <div class="d-flex">
+              <span>Agedecesan</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agedecesmois">
+            <div class="d-flex">
+              <span>Agedecesmois</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agedecesjours">
+            <div class="d-flex">
+              <span>Agedecesjours</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let acidoform of acidoforms; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/acidoform', acidoform.id, 'view']">{{ acidoform.id }}</a>
+          </td>
+          <td>{{ acidoform.homocystinurie }}</td>
+          <td>{{ acidoform.leucinose }}</td>
+          <td>{{ acidoform.phenylcetonurie }}</td>
+          <td>{{ acidoform.tyrosinemie }}</td>
+          <td>{{ acidoform.updatedate | formatMediumDate }}</td>
+          <td>{{ acidoform.typeobservation }}</td>
+          <td>{{ acidoform.createddate | formatMediumDate }}</td>
+          <td>{{ acidoform.sexe }}</td>
+          <td>{{ acidoform.datenaissance | formatMediumDate }}</td>
+          <td>{{ acidoform.statut }}</td>
+          <td>{{ acidoform.ageactuelans }}</td>
+          <td>{{ acidoform.ageactuelmois }}</td>
+          <td>{{ acidoform.ageactueljours }}</td>
+          <td>{{ acidoform.datedeces | formatMediumDate }}</td>
+          <td>{{ acidoform.agedecesan }}</td>
+          <td>{{ acidoform.agedecesmois }}</td>
+          <td>{{ acidoform.agedecesjours }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/acidoform', acidoform.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/acidoform', acidoform.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(acidoform)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="acidoforms && acidoforms.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+{
+  "changelogDate": "20230629142721",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "homocystinurie",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "leucinose",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "phenylcetonurie",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tyrosinemie",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "updatedate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "typeobservation",
+      "fieldType": "etypeobservation",
+      "fieldValues": "P,F"
+    },
+    {
+      "fieldName": "createddate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "sexe",
+      "fieldType": "esexe",
+      "fieldValues": "F,M,I"
+    },
+    {
+      "fieldName": "datenaissance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "estatut",
+      "fieldValues": "ENCORE_SUIVI,DECEDE,PERDU_DE_VUE,INTERRUPTION_DE_GROSSESSE"
+    },
+    {
+      "fieldName": "ageactuelans",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ageactuelmois",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ageactueljours",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "datedeces",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "agedecesan",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "agedecesmois",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "agedecesjours",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Acidoform",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

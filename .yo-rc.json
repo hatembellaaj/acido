@@ -19,7 +19,7 @@
     "enableHibernateCache": false,
     "enableSwaggerCodegen": false,
     "enableTranslation": false,
-    "entities": ["Structure", "Servicestructure", "Medecin"],
+    "entities": ["Structure", "Servicestructure", "Medecin", "Acidoform"],
     "entitySuffix": "",
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.9.3",
